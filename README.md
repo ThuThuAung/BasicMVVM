@@ -1,4 +1,4 @@
-# **EMVVM Architecture**
+# **MVVM Architecture**
 Name: Thu Thu Aung
 -------------
 It is the simple application to display user list and detail views with map.
