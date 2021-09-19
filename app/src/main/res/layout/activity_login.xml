@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.thuthu.basicmvvm.viewmodel.UserViewModel"/>
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/cardview_light_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            >
+
+            <ImageView
+                android:id="@+id/ic_user"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/user_icon"/>
+
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/ic_user"
+                android:hint="Email"
+                android:text="@={viewModel.email}"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/border"
+                android:drawableLeft="@drawable/outline_person_24"
+                android:drawablePadding="5dp"
+                android:textColorHint="@android:color/background_dark"
+                android:textColor="@android:color/background_dark"></EditText>
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_email"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="@={viewModel.password}"
+                android:layout_centerVertical="true"
+                android:background="@drawable/border"
+                android:drawableLeft="@drawable/outline_lock_24"
+                android:drawablePadding="5dp"
+                android:textColorHint="@android:color/background_dark"
+                android:textColor="@android:color/background_dark"></EditText>
+
+            <Spinner
+                android:id="@+id/countriesList"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:layout_below="@id/et_password"
+                android:layout_centerVertical="true"
+                android:background="@drawable/spinner_background"
+
+                />
+            <CheckBox
+                android:id="@+id/rememberMeCheckBox"
+                android:checked="@={viewModel.onChecked}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/countriesList"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="Remember me!"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"/>
+
+            <Button
+
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rememberMeCheckBox"
+                android:text="Login"
+                android:onClick="@{(v)-> viewModel.onClickLogin(v)}"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"
+
+                />
+
+
+
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
